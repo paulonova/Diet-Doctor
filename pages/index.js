@@ -7,8 +7,14 @@ import client from "../client";
 import Card from "components/Card";
 import Loading from "components/Loading";
 
+import { useTranslation } from 'next-i18next';
+
 // Define the Home component
 const Home = ({ defaultData }) => {
+
+  // Internationalization
+  const { t } = useTranslation();
+
   // State variables
   const [loadRecipes, setLoadRecipes] = useState(
     defaultData.listRecipes.recipes
@@ -81,7 +87,7 @@ const Home = ({ defaultData }) => {
       <div className="w-[100%] bg-green-700 flex justify-center items-center">
         <input
           type="text"
-          placeholder="Search recipes..."
+          placeholder={t('Search recipes...')}
           onChange={(e) => handleSearch(e.target.value)}
           className="focus:border-green-600 focus:outline-none mt-5 p-2 border w-[80%] md:w-[50%] lg:w-[30%] mb-5"
         />
